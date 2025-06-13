@@ -8,7 +8,6 @@ class CalculateFreightAPI(APIView):
         category_id = request.data.get('category_id')
         destination_id = request.data.get('destination_id')
         weight = request.data.get('weight')
-        # weight = float(request.data.get('weight'))
 
         category = Category.objects.get(id=category_id)
         origin = Country.objects.get(id=country_id)
@@ -30,5 +29,5 @@ class CalculateFreightAPI(APIView):
         }
         return Response(response_data)
 
-    def get_domestic_price(self, destination_id, weight):
+    def get_domestic_price(self, weight):
         return weight * 10000

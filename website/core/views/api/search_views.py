@@ -37,6 +37,7 @@ class CategorySearchAPI(APIView):
         data = [
             {
                 'id': cat.id,
+                'country_id': cat.country_id,
                 'category_title': cat.category_title,
                 'price_per_kilo': cat.price_per_kilo
             }
