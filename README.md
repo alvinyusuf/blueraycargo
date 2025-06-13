@@ -36,12 +36,12 @@ Simple Django + Django Rest Framework project untuk simulasi perhitungan ongkos 
 **Response:**
 ```json
 {
-  "origin": "Indonesia",
-  "destination": "Bandung",
-  "category_name": "Fresh Fruit",
-  "international_price": 75000,
-  "domestic_price": 50000,
-  "total_price": 125000
+    "origin": "China",
+    "destination": "Singapore",
+    "category_name": "Chip",
+    "international_price": 150000000.0,
+    "domestic_price": 5000000,
+    "total_price": 155000000.0
 }
 ```
 
