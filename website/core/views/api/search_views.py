@@ -1,0 +1,28 @@
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from core.models import Country, Category
+
+class CountrySearchAPI(APIView):
+    def get(self, request):
+        search = request.GET.get('search', '')
+        countries = Country.objects.filter(country_name__icontains=search)
+        data = [
+            {
+                'id': c.id,
+                'country_name': c.country_name,
+                'country_currency': c.country_currency
+            }
+            for c in countries
+        ]
+        return Response(data)
+
+class CategorySearchAPI(APIView):
+    def get(self, request):
+        country_id = request.GET.get('country_id')
+        search = request.GET.get('search', '')
+        categories = Category.objects.filter(country_id=country_id, category_title__icontains=search)
+        data = [
+            {'id': cat.id, 'category_title': cat.category_title, 'price_per_kilo': cat.price_per_kilo}
+            for cat in categories
+        ]
+        return Response(data)

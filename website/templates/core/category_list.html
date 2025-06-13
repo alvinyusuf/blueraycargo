@@ -1,0 +1,16 @@
+<h1>Category List</h1>
+<a href="{% url 'category_add' %}">Add Category</a>
+<table border="1">
+  <tr><th>Country</th><th>Title</th><th>Price/Kg</th><th>Action</th></tr>
+  {% for cat in categories %}
+  <tr>
+    <td>{{ cat.country.country_name }}</td>
+    <td>{{ cat.category_title }}</td>
+    <td>{{ cat.price_per_kilo }}</td>
+    <td>
+      <a href="{% url 'category_edit' cat.id %}">Edit</a> |
+      <a href="{% url 'category_delete' cat.id %}">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

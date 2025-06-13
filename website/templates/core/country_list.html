@@ -1,0 +1,16 @@
+<h1>Country List</h1>
+<a href="{% url 'country_add' %}">Add Country</a>
+<table border="1">
+  <tr><th>Name</th><th>Flag</th><th>Currency</th><th>Action</th></tr>
+  {% for c in countries %}
+  <tr>
+    <td>{{ c.country_name }}</td>
+    <td><img src="{{ c.country_flag }}" width="50"></td>
+    <td>{{ c.country_currency }}</td>
+    <td>
+      <a href="{% url 'country_edit' c.id %}">Edit</a> |
+      <a href="{% url 'country_delete' c.id %}">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>

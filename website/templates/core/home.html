@@ -1,0 +1,12 @@
+<h2>Welcome {{ user }}</h2>
+<div style="display: flex; flex-direction: column; gap: 10px;">
+  <a href="{% url 'country_list' %}">Country List</a>
+  <a href="{% url 'category_list' %}">Category List</a>
+
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+  </form>
+
+  <!-- <a href="{% url 'logout' %}">Logout</a> -->
+</div>

@@ -1,0 +1,13 @@
+<h1>{% if category %}Edit{% else %}Add{% endif %} Category</h1>
+<form method="post">
+  {% csrf_token %}
+  <label>Country: </label>
+  <select name="country">
+    {% for c in countries %}
+      <option value="{{ c.id }}" {% if category.country.id == c.id %}selected{% endif %}>{{ c.country_name }}</option>
+    {% endfor %}
+  </select><br>
+  <label>Title: </label><input type="text" name="category_title" value="{{ category.category_title|default_if_none:'' }}"><br>
+  <label>Price per Kilo: </label><input type="number" name="price_per_kilo" value="{{ category.price_per_kilo|default_if_none:'' }}"><br>
+  <button type="submit">Save</button>
+</form>

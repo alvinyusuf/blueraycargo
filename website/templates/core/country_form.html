@@ -1,0 +1,8 @@
+<h1>{% if country %}Edit{% else %}Add{% endif %} Country</h1>
+<form method="post">
+  {% csrf_token %}
+  <label>Country Name: </label><input type="text" name="country_name" value="{{ country.country_name|default_if_none:'' }}"><br>
+  <label>Country Flag (URL): </label><input type="text" name="country_flag" value="{{ country.country_flag|default_if_none:'' }}"><br>
+  <label>Currency: </label><input type="text" name="country_currency" value="{{ country.country_currency|default_if_none:'' }}"><br>
+  <button type="submit">Save</button>
+</form>
